@@ -1,0 +1,255 @@
+/* Variáveis de Cores (Baseadas no PDF e referências) */
+:root {
+    --gray-dark: #2c2d30;
+    --gray-medium: #4a4a4a;
+    --gray-light: #f4f5f7;
+    --white: #ffffff;
+    --orange-conds: #ff6b00;
+    --yellow-mosaic: #ffc107;
+    --blue-mosaic: #00bcd4;
+    --purple-mosaic: #8a2be2;
+    --pink-mosaic: #ff69b4;
+    --orange-mosaic: #ff9800;
+    --light-blue-mosaic: #03a9f4;
+    --green-whatsapp: #25d366;
+    --transition: all 0.3s ease;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: var(--white);
+    color: var(--gray-dark);
+    overflow-x: hidden;
+}
+
+/* Tipografia Comum */
+h1, h2, h3 { font-weight: 700; margin-bottom: 15px; }
+p { line-height: 1.6; }
+
+/* Placeholder para Imagens (Remover quando adicionar as imagens reais) */
+.placeholder-img {
+    background-color: rgba(0,0,0,0.1);
+    border: 2px dashed #ccc;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--gray-medium);
+    font-style: italic;
+    text-align: center;
+    padding: 20px;
+}
+
+/* --- Navegação e Dropdown --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 50px;
+    background-color: var(--white);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 30px;
+}
+
+.nav-links li { position: relative; }
+.nav-links a {
+    text-decoration: none;
+    color: var(--gray-dark);
+    font-weight: 600;
+    transition: var(--transition);
+}
+
+.nav-links a:hover { color: var(--orange-conds); }
+
+/* Lógica do Mini Menu (Dropdown) */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: var(--white);
+    box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+    list-style: none;
+    min-width: 180px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: var(--transition);
+    border-radius: 5px;
+    overflow: hidden;
+}
+
+.dropdown:hover .dropdown-menu {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.dropdown-menu li a {
+    display: block;
+    padding: 12px 20px;
+    font-weight: 400;
+    border-bottom: 1px solid #eee;
+}
+
+.dropdown-menu li a:hover { background-color: var(--gray-light); }
+
+/* --- Botões --- */
+.btn-primary {
+    background-color: var(--orange-conds);
+    color: var(--white);
+    padding: 10px 24px;
+    border: none;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: var(--transition);
+}
+.btn-primary:hover { background-color: #e65c00; transform: scale(1.05); }
+
+/* --- Hero Section (SEO Rocket Style em tons de Cinza) --- */
+.hero {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px 50px;
+    background: linear-gradient(135deg, var(--gray-dark) 0%, var(--gray-medium) 100%);
+    color: var(--white);
+    min-height: 80vh;
+}
+
+.hero-content { flex: 1; max-width: 600px; }
+.hero-content h1 { font-size: 3rem; margin-bottom: 30px; }
+.hero .subtitle { color: var(--orange-conds); font-weight: bold; margin-bottom: 10px; }
+
+.input-group {
+    display: flex;
+    background: var(--white);
+    padding: 8px;
+    border-radius: 50px;
+    gap: 10px;
+}
+.input-group input {
+    border: none;
+    outline: none;
+    padding: 10px 15px;
+    flex: 1;
+    border-radius: 25px;
+}
+.hero-image { flex: 1; height: 400px; margin-left: 50px; border-radius: 20px; }
+
+/* --- Sobre a Conds --- */
+.sobre {
+    display: flex;
+    align-items: center;
+    padding: 80px 50px;
+    background-color: var(--gray-dark);
+    color: var(--white);
+    gap: 50px;
+}
+.sobre-text { flex: 1; }
+.sobre-image { flex: 1; height: 300px; border-radius: 10px; }
+
+/* --- Mosaico Section --- */
+.mosaic {
+    display: flex;
+    background-color: var(--gray-light);
+}
+
+.mosaic-left {
+    flex: 1;
+    background-color: var(--yellow-mosaic);
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    position: relative;
+}
+.woman-placeholder { height: 350px; width: 100%; border-radius: 10px; margin-bottom: 20px; background-color: rgba(255,255,255,0.3); border-color: #fff;}
+.mosaic-left h2 { font-size: 3rem; color: var(--white); text-shadow: 2px 2px 4px rgba(0,0,0,0.1); }
+
+.mosaic-right {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+}
+
+.mosaic-item {
+    padding: 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: var(--white);
+    font-weight: 600;
+    transition: var(--transition);
+}
+.mosaic-item i { font-size: 2.5rem; margin-bottom: 15px; }
+.mosaic-item:hover { transform: scale(1.02); z-index: 10; box-shadow: 0 10px 20px rgba(0,0,0,0.2); }
+
+/* Cores do Mosaico */
+.color-blue { background-color: var(--blue-mosaic); }
+.color-purple { background-color: var(--purple-mosaic); }
+.color-pink { background-color: var(--pink-mosaic); }
+.color-orange { background-color: var(--orange-mosaic); }
+.color-yellow { background-color: var(--yellow-mosaic); color: var(--gray-dark); }
+.color-light-blue { background-color: var(--light-blue-mosaic); }
+
+/* --- Produtos --- */
+.produtos { padding: 80px 50px; text-align: center; background-color: var(--white); }
+.produtos-grid {
+    display: flex;
+    justify-content: space-between;
+    gap: 30px;
+    margin-top: 40px;
+}
+.produto-card { flex: 1; height: 250px; border-radius: 10px; box-shadow: 0 5px 15px rgba(0,0,0,0.05); }
+
+/* --- Rodapé --- */
+footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 60px 50px;
+    background-color: var(--gray-dark);
+    color: var(--white);
+}
+.btn-whatsapp {
+    display: inline-block;
+    background-color: var(--green-whatsapp);
+    color: var(--white);
+    padding: 10px 20px;
+    border-radius: 25px;
+    text-decoration: none;
+    font-weight: bold;
+    margin-top: 15px;
+    transition: var(--transition);
+}
+.btn-whatsapp:hover { background-color: #1ebe57; }
+.footer-social i { font-size: 1.5rem; margin-left: 15px; cursor: pointer; transition: var(--transition); }
+.footer-social i:hover { color: var(--orange-conds); }
+
+/* --- Classes do Efeito de Scroll (JS) --- */
+.animate-on-scroll {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+}
+.animate-on-scroll.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
