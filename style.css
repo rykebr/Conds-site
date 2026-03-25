@@ -1251,3 +1251,65 @@ footer {
     opacity: 1;
     transform: translateY(0);
 }
+
+/* ==========================================================
+   AJUSTES FINAIS PARA MOBILE (CORREÇÃO DE IMAGENS CORTADAS)
+   ========================================================== */
+@media (max-width: 900px) {
+    /* 1. Conserta a seção inicial (Hero) para não espremer o conteúdo */
+    .hero {
+        flex-direction: column !important;
+        padding: 100px 20px 40px 20px !important; /* Espaço para o menu não tampar o título */
+        height: auto !important;
+        min-height: auto !important;
+        text-align: center !important;
+    }
+
+    /* 2. Conserta a imagem dos prédios sendo cortada pela metade */
+    .hero-image {
+        margin-left: 0 !important;
+        margin-top: 40px !important;
+        width: 100% !important;
+        height: auto !important;
+    }
+
+    .hero-image img {
+        width: 100% !important;
+        height: auto !important;
+        object-fit: contain !important; /* Garante que a imagem inteira apareça */
+    }
+
+    /* 3. ESCONDE A CAIXA BRANCA DE E-MAIL E NOME NO MOBILE */
+    .input-group {
+        display: none !important;
+    }
+
+    /* 4. Conserta a seção "Sobre" e "Mosaico" para não dividirem a tela */
+    .sobre, .mosaic {
+        flex-direction: column !important;
+        padding: 40px 20px !important;
+        text-align: center !important;
+    }
+
+    .sobre-image {
+        margin-top: 30px !important;
+        width: 100% !important;
+    }
+
+    /* 5. Coloca os botões coloridos do mosaico em 1 coluna só */
+    .mosaic-right {
+        grid-template-columns: 1fr !important;
+    }
+
+    .mosaic-left {
+        padding: 40px 20px !important;
+    }
+
+    /* 6. Ajusta o Rodapé (Footer) para o meio */
+    footer {
+        flex-direction: column !important;
+        text-align: center !important;
+        gap: 20px !important;
+        padding: 40px 20px !important;
+    }
+}
