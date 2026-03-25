@@ -9,11 +9,16 @@
 </head>
 <body>
 
-    <header class="navbar">
+	<header class="navbar">
         <div class="logo">
             <i class="fa-solid fa-building"></i> <strong>conds</strong>
         </div>
-        <nav>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
+
+        <nav class="nav-menu">
             <ul class="nav-links">
                 <li class="dropdown">
                     <a href="#">Início <i class="fa-solid fa-chevron-down"></i></a>
@@ -32,7 +37,11 @@
                 <li><a href="#produtos">Produtos</a></li>
             </ul>
         </nav>
-        <a href="#contato" class="btn-primary">Fale Conosco</a>
+        
+        <div class="nav-actions">
+            <a href="https://app.gconds.com.br" class="btn-outline">Login</a>
+            <a href="#contato" class="btn-primary">Fale Conosco</a>
+        </div>
     </header>
 
     <section id="hero" class="hero bg-gradient-gray animate-on-scroll">
