@@ -1,46 +1,181 @@
-document.addEventListener('DOMContentLoaded', () => {
-    
-    // --- Lógica do Menu Mobile ---
-    const mobileMenu = document.getElementById('mobile-menu');
-    const navMenu = document.querySelector('.nav-menu');
-    const navActions = document.querySelector('.nav-actions');
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Conds - Gestão Condominial</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
 
-    if (mobileMenu) {
-        mobileMenu.addEventListener('click', () => {
-            // Abre/fecha o menu e os botões
-            navMenu.classList.toggle('active');
-            navActions.classList.toggle('active');
-            
-            // Opcional: Anima o ícone sanduíche para um "X"
-            // Você precisaria de CSS extra para isso.
-        });
-    }
+    <header class="navbar">
+        <div class="logo">
+            <i class="fa-solid fa-building"></i> <strong>conds</strong>
+        </div>
+        
+        <div class="menu-toggle" id="mobile-menu">
+            <i class="fa-solid fa-bars"></i>
+        </div>
 
-    // --- Lógica existente do Intersection Observer para Animações na Rolagem ---
-    // Esta parte adiciona a classe 'visible' aos elementos que têm 'animate-on-scroll'
-    const observerOptions = {
-        root: null, // Usa a viewport como área de referência
-        rootMargin: '0px',
-        threshold: 0.15 // 15% do elemento precisa estar visível para disparar
-    };
+        <nav class="nav-menu">
+            <ul class="nav-links">
+                <li class="dropdown">
+                    <a href="#">Início <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#hero">Visão Geral</a></li>
+                        <li><a href="#sobre">Sobre a Conds</a></li>
+                    </ul>
+                </li>
+                <li class="dropdown">
+                    <a href="#">Serviços <i class="fa-solid fa-chevron-down"></i></a>
+                    <ul class="dropdown-menu">
+                        <li><a href="#mosaic">Controle Normativo</a></li>
+                        <li><a href="#mosaic">Apresentações</a></li>
+                    </ul>
+                </li>
+                <li><a href="#produtos">Produtos</a></li>
+            </ul>
+        </nav>
+        
+        <div class="nav-actions">
+            <a href="https://app.gconds.com.br" class="btn-outline">Login</a>
+            <a href="#contato" class="btn-primary">Fale Conosco</a>
+        </div>
+    </header>
 
-    const observer = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-            // Se o elemento estiver visível na tela
-            if (entry.isIntersecting) {
-                // Adiciona a classe 'visible'
-                entry.target.classList.add('visible');
-                // Pára de observar o elemento depois de revelar
-                observer.unobserve(entry.target);
-            }
-        });
-    }, observerOptions);
+    <section id="hero" class="hero bg-gradient-gray animate-on-scroll">
+        <div class="hero-content">
+            <p class="subtitle">Gestão Condominial Moderna</p>
+            <h1>Tenha o controle de tudo na palma da sua mão.</h1>
+            <div class="input-group">
+                <input type="text" placeholder="Nome do Condomínio">
+                <input type="email" placeholder="Seu e-mail">
+                <button class="btn-primary">Começar Agora <i class="fa-solid fa-arrow-right"></i></button>
+            </div>
+        </div>
+        <div class="hero-image">
+            <img src="img/Conds - Gestão condominial_page-0001.jpg" alt="Fachada de prédio Conds">
+        </div>
+    </section>
 
-    // Encontra todos os elementos com a classe animate-on-scroll
-    const elementsToAnimate = document.querySelectorAll('.animate-on-scroll');
-    
-    // Diz ao observer para observar cada um deles
-    elementsToAnimate.forEach(el => {
-        observer.observe(el);
-    });
-});
+    <section id="sobre" class="sobre bg-dark-gray animate-on-scroll">
+        <div class="sobre-text">
+            <h2>sobre a conds</h2>
+            <p>A Conds tem como objetivo ajudar os residenciais sejam ele de pequeno, médio ou grande porte a ter uma Gestão com resultados. Não gerenciar só problemas, mas fazer um trabalho eficaz e preventivo.</p>
+        </div>
+        <div class="sobre-image">
+            <img src="img/Conds - Gestão condominial_page-0002.jpg" alt="Quem somos Conds">
+        </div>
+    </section>
+
+    <section id="mosaic" class="mosaic animate-on-scroll">
+        <div class="mosaic-left">
+            <img src="img/7.jpg" alt="Mulher sorrindo e apontando" class="woman-img">
+            <h2>Tenha o controle de tudo!</h2>
+        </div>
+        <div class="mosaic-right grid-container">
+            <div class="mosaic-item color-blue">
+                <i class="fa-solid fa-file-contract"></i>
+                <p>Controle das Manutenções normativas e corretivas</p>
+            </div>
+            <div class="mosaic-item color-purple">
+                <i class="fa-solid fa-list-check"></i>
+                <p>Checklist de todas as áreas de lazer</p>
+            </div>
+            <div class="mosaic-item color-pink">
+                <i class="fa-solid fa-chart-line"></i>
+                <p>Apresentações de projetos com fotos</p>
+            </div>
+            <div class="mosaic-item color-orange">
+                <i class="fa-solid fa-gear"></i>
+                <p>Informações e material personalizado</p>
+            </div>
+            <div class="mosaic-item color-yellow">
+                <i class="fa-solid fa-comments"></i>
+                <p>Comunicações personalizadas em sequência</p>
+            </div>
+            <div class="mosaic-item color-light-blue">
+                <i class="fa-solid fa-folder-open"></i>
+                <p>Criação de imagens, vídeos e conteúdo</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="produtos" class="produtos animate-on-scroll">
+        <h2>Nossas Soluções</h2>
+        <div class="produtos-grid">
+            <div class="produto-card">
+                <img src="img/6.jpg" alt="Tablet Preto Sindicond">
+                <div class="produto-info">
+                    <h3>App Sindicond</h3>
+                    <p>Gestão completa na palma da mão.</p>
+                </div>
+            </div>
+            <div class="produto-card">
+                <img src="img/2.jpg" alt="Checklists Digitais">
+                <div class="produto-info">
+                    <h3>Checklists Profissionais</h3>
+                    <p>Auditoria 5 estrelas do seu condomínio.</p>
+                </div>
+            </div>
+            <div class="produto-card">
+                <img src="img/Conds - Gestão condominial_page-0004.jpg" alt="Gestão Prática">
+                <div class="produto-info">
+                    <h3>Gestão na Prática</h3>
+                    <p>Controle operacional e acompanhamento de projetos.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="diferenciais" class="diferenciais animate-on-scroll bg-gray-light">
+        <div class="diferenciais-container">
+            <div class="diferenciais-image">
+                <img src="img/Conds - Gestão condominial_page-0011.jpg" alt="Diferenciais Conds e Resultados" class="img-responsive">
+            </div>
+            <div class="diferenciais-text">
+                <h2>Soluções Completas para Resultados Reais</h2>
+                <p>Nossa plataforma foi desenhada para centralizar todos os aspectos da gestão condominial, proporcionando transparência e agilidade para síndicos e administradoras. Reduza custos operacionais, melhore a comunicação e tenha uma visão clara do estado de conservação do seu patrimônio.</p>
+                <ul class="diferenciais-list">
+                    <li><i class="fa-solid fa-circle-check"></i> Centralização de dados operacionais</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Comunicação integrada e eficiente</li>
+                    <li><i class="fa-solid fa-circle-check"></i> Relatórios gerenciais transparentes</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="contato" class="contato animate-on-scroll">
+        <div class="contato-container">
+            <div class="contato-form">
+                <h2>Solicite um Orçamento Personalizado</h2>
+                <p>Preencha os dados abaixo e nossa equipe comercial entrará em contato para apresentar a melhor solução para o seu condomínio.</p>
+                <form>
+                    <input type="text" placeholder="Nome do Condomínio" required>
+                    <input type="email" placeholder="E-mail Corporativo" required>
+                    <input type="tel" placeholder="Telefone / WhatsApp">
+                    <button type="submit" class="btn-primary">Enviar Solicitação <i class="fa-solid fa-paper-plane"></i></button>
+                </form>
+            </div>
+            <div class="contato-image">
+                <img src="img/Conds - Gestão condominial_page-0012.jpg" alt="Informações de Contato Conds" class="img-responsive">
+            </div>
+        </div>
+    </section>
+
+    <footer class="bg-dark-gray animate-on-scroll">
+        <div class="footer-logo">
+            <i class="fa-solid fa-building"></i> <strong>conds</strong>
+            <p>Gestão condominial moderna</p>
+        </div>
+        <div class="footer-social">
+            <a href="#" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-facebook"></i></a>
+            <a href="#" target="_blank"><i class="fa-brands fa-linkedin"></i></a>
+        </div>
+    </footer>
+
+    <script src="script.js"></script>
+</body>
+</html>
