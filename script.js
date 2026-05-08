@@ -244,4 +244,45 @@ document.addEventListener('DOMContentLoaded', () => {
             form.reset();
         }, 3500);
     });
+
+    // ===== MATRIX CURSOR EFFECT (revertível — remover este bloco para desativar) =====
+    const matrixWords = [
+        'Conds', 'Gestão', 'Síndico', 'Condomínio', 'Boleto', 'Reserva',
+        'Manutenção', 'Financeiro', 'Portaria', 'Módulo', 'Morador', 'Taxa',
+        'Visitante', 'Encomenda', 'Assembleia', 'Comunicado', 'Ocorrência',
+        'Unidade', 'Bloco', 'Relatório', 'Acesso', 'Administração'
+    ];
+    const matrixSkipSelector = '.hero-img-wrapper, .sobre-img-frame, .dif-img-frame, .contato-img-wrapper, .stat, .feature-card, button, a, input, textarea, select';
+    const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
+
+    if (!isCoarsePointer) {
+        let matrixLastSpawn = 0;
+        const matrixSpawnInterval = 140;
+
+        document.addEventListener('mousemove', (e) => {
+            const now = performance.now();
+            if (now - matrixLastSpawn < matrixSpawnInterval) return;
+            matrixLastSpawn = now;
+
+            if (e.target.closest(matrixSkipSelector)) return;
+
+            const word = matrixWords[Math.floor(Math.random() * matrixWords.length)];
+            const particle = document.createElement('span');
+            particle.className = 'matrix-particle';
+            particle.textContent = word;
+
+            const offsetX = (Math.random() - 0.5) * 70;
+            const offsetY = (Math.random() - 0.5) * 36;
+            const driftX  = (Math.random() - 0.5) * 90;
+
+            particle.style.left = (e.clientX + offsetX) + 'px';
+            particle.style.top  = (e.clientY + offsetY) + 'px';
+            particle.style.setProperty('--drift-x', driftX + 'px');
+            particle.style.fontSize = (10 + Math.random() * 5).toFixed(1) + 'px';
+
+            document.body.appendChild(particle);
+            setTimeout(() => particle.remove(), 1900);
+        }, { passive: true });
+    }
+    // ===== FIM MATRIX CURSOR EFFECT =====
 });
