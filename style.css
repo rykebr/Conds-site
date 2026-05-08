@@ -1728,26 +1728,38 @@ body,
 .matrix-particle {
     position: fixed;
     pointer-events: none;
-    color: rgba(255, 140, 30, 0.42);
-    font-family: 'Courier New', 'Consolas', monospace;
-    font-weight: 600;
     z-index: 9999;
     user-select: none;
-    white-space: nowrap;
-    transform: translate(-50%, -50%);
-    animation: matrixDrift 1.9s ease-out forwards;
+    animation: matrixGlitch var(--dur, 1.4s) ease-out forwards;
     will-change: transform, opacity;
-    text-shadow: 0 0 6px rgba(255, 140, 30, 0.18);
+    transform-origin: center center;
 }
 
-@keyframes matrixDrift {
-    0%   { opacity: 0;    transform: translate(-50%, -50%) translate(0, 0); }
-    18%  { opacity: 0.85; }
-    100% { opacity: 0;    transform: translate(-50%, -50%) translate(var(--drift-x, 0), 70px); }
+.matrix-particle.filled {
+    background: rgba(255, 106, 0, var(--alpha, 0.28));
 }
 
-[data-theme="dark"] .matrix-particle {
-    color: rgba(255, 165, 70, 0.5);
-    text-shadow: 0 0 8px rgba(255, 140, 30, 0.25);
+.matrix-particle.outline {
+    background: transparent;
+    border: 1.5px solid rgba(255, 130, 30, var(--alpha, 0.32));
 }
+
+.matrix-particle.bar {
+    background: rgba(255, 150, 40, var(--alpha, 0.22));
+}
+
+.matrix-particle.flash {
+    background: rgba(255, 200, 100, var(--alpha, 0.45));
+}
+
+@keyframes matrixGlitch {
+    0%   { opacity: 0;                      transform: rotate(var(--rot,0deg)) scale(1); }
+    10%  { opacity: var(--peak, 1); }
+    55%  { opacity: calc(var(--peak, 1) * 0.6); }
+    100% { opacity: 0; transform: rotate(var(--rot,0deg)) translate(var(--dx,0), var(--dy,18px)) scale(0.6); }
+}
+
+[data-theme="dark"] .matrix-particle.filled  { background: rgba(255, 130, 40, var(--alpha, 0.35)); }
+[data-theme="dark"] .matrix-particle.outline { border-color: rgba(255, 160, 60, var(--alpha, 0.4)); }
+[data-theme="dark"] .matrix-particle.flash   { background: rgba(255, 210, 120, var(--alpha, 0.5)); }
 /* ===== FIM MATRIX CURSOR EFFECT ===== */

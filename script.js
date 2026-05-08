@@ -246,42 +246,58 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
     // ===== MATRIX CURSOR EFFECT (revertível — remover este bloco para desativar) =====
-    const matrixWords = [
-        'Conds', 'Gestão', 'Síndico', 'Condomínio', 'Boleto', 'Reserva',
-        'Manutenção', 'Financeiro', 'Portaria', 'Módulo', 'Morador', 'Taxa',
-        'Visitante', 'Encomenda', 'Assembleia', 'Comunicado', 'Ocorrência',
-        'Unidade', 'Bloco', 'Relatório', 'Acesso', 'Administração'
-    ];
-    const matrixSkipSelector = '.hero-img-wrapper, .sobre-img-frame, .dif-img-frame, .contato-img-wrapper, .stat, .feature-card, button, a, input, textarea, select';
+    const matrixSkipSelector = '.hero-img-wrapper, .sobre-img-frame, .dif-img-frame, .contato-img-wrapper, button, input, textarea, select';
     const isCoarsePointer = window.matchMedia('(pointer: coarse)').matches;
 
     if (!isCoarsePointer) {
         let matrixLastSpawn = 0;
-        const matrixSpawnInterval = 140;
+        const matrixSpawnInterval = 110;
+
+        function spawnMatrixSquares(mx, my) {
+            const count = 2 + Math.floor(Math.random() * 2);
+            for (let i = 0; i < count; i++) {
+                const angle    = Math.random() * Math.PI * 2;
+                const distance = 90 + Math.random() * 200;
+                const x = mx + Math.cos(angle) * distance;
+                const y = my + Math.sin(angle) * distance;
+
+                if (x < 0 || y < 0 || x > window.innerWidth || y > window.innerHeight) continue;
+
+                const rnd  = Math.random();
+                const type = rnd < 0.15 ? 'flash' : rnd < 0.40 ? 'outline' : rnd < 0.60 ? 'bar' : 'filled';
+
+                const size  = type === 'bar'
+                    ? { w: 8 + Math.random() * 28, h: 2 + Math.random() * 4 }
+                    : { w: 4 + Math.random() * 13, h: 4 + Math.random() * 13 };
+
+                const alpha = (0.18 + Math.random() * 0.28).toFixed(2);
+                const peak  = (0.55 + Math.random() * 0.45).toFixed(2);
+                const dur   = (1.0  + Math.random() * 0.9).toFixed(2) + 's';
+                const rot   = ((Math.random() - 0.5) * 35).toFixed(1) + 'deg';
+                const dx    = ((Math.random() - 0.5) * 35).toFixed(1) + 'px';
+                const dy    = (8 + Math.random() * 28).toFixed(1) + 'px';
+
+                const p = document.createElement('div');
+                p.className = 'matrix-particle ' + type;
+                p.style.cssText = `left:${x.toFixed(1)}px;top:${y.toFixed(1)}px;width:${size.w.toFixed(1)}px;height:${size.h.toFixed(1)}px;`;
+                p.style.setProperty('--alpha', alpha);
+                p.style.setProperty('--peak',  peak);
+                p.style.setProperty('--dur',   dur);
+                p.style.setProperty('--rot',   rot);
+                p.style.setProperty('--dx',    dx);
+                p.style.setProperty('--dy',    dy);
+
+                document.body.appendChild(p);
+                setTimeout(() => p.remove(), parseFloat(dur) * 1000 + 100);
+            }
+        }
 
         document.addEventListener('mousemove', (e) => {
             const now = performance.now();
             if (now - matrixLastSpawn < matrixSpawnInterval) return;
             matrixLastSpawn = now;
-
             if (e.target.closest(matrixSkipSelector)) return;
-
-            const word = matrixWords[Math.floor(Math.random() * matrixWords.length)];
-            const particle = document.createElement('span');
-            particle.className = 'matrix-particle';
-            particle.textContent = word;
-
-            const offsetX = (Math.random() - 0.5) * 70;
-            const offsetY = (Math.random() - 0.5) * 36;
-            const driftX  = (Math.random() - 0.5) * 90;
-
-            particle.style.left = (e.clientX + offsetX) + 'px';
-            particle.style.top  = (e.clientY + offsetY) + 'px';
-            particle.style.setProperty('--drift-x', driftX + 'px');
-            particle.style.fontSize = (10 + Math.random() * 5).toFixed(1) + 'px';
-
-            document.body.appendChild(particle);
-            setTimeout(() => particle.remove(), 1900);
+            spawnMatrixSquares(e.clientX, e.clientY);
         }, { passive: true });
     }
     // ===== FIM MATRIX CURSOR EFFECT =====
