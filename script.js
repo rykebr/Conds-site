@@ -102,6 +102,19 @@ document.addEventListener('DOMContentLoaded', () => {
         counterObserver.observe(sec);
     });
 
+    // ── Stat hover — re-trigger counter + ripple ─────────────
+    document.querySelectorAll('.hero-stats .stat').forEach(stat => {
+        stat.addEventListener('mouseenter', () => {
+            const el = stat.querySelector('[data-count]');
+            if (el) animateCount(el);
+        });
+
+        stat.addEventListener('click', () => {
+            const el = stat.querySelector('[data-count]');
+            if (el) animateCount(el);
+        });
+    });
+
     // ── Active nav link on scroll ─────────────────────────────
     const sections = document.querySelectorAll('section[id]');
     const navLinks  = document.querySelectorAll('.nav-links a');
@@ -134,13 +147,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // ── 3D Tilt on hover ──────────────────────────────────────
     function addTilt(el, intensity = 7) {
+        const tiltStrength = parseFloat(el.dataset.tiltIntensity) || intensity;
         el.style.transition = 'transform 0.5s ease';
 
         el.addEventListener('mousemove', (e) => {
             const r = el.getBoundingClientRect();
             const x = (e.clientX - r.left) / r.width  - 0.5;
             const y = (e.clientY - r.top)  / r.height - 0.5;
-            el.style.transform = `perspective(900px) rotateY(${x * intensity}deg) rotateX(${-y * intensity}deg) scale3d(1.03,1.03,1.03)`;
+            el.style.transform = `perspective(900px) rotateY(${x * tiltStrength}deg) rotateX(${-y * tiltStrength}deg) scale3d(1.04,1.04,1.04)`;
             el.style.transition = 'transform 0.08s linear';
         });
 
@@ -151,6 +165,35 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     document.querySelectorAll('.tilt-wrap').forEach(el => addTilt(el));
+
+    // ── Hero image — mouse-follow glow + cards parallax ──────
+    const heroWrapper = document.querySelector('.hero-img-wrapper');
+    if (heroWrapper) {
+        const heroInner = heroWrapper.querySelector('.hero-img-inner');
+        const cards     = heroWrapper.querySelectorAll('.hero-card');
+
+        heroWrapper.addEventListener('mousemove', (e) => {
+            const r = heroInner.getBoundingClientRect();
+            const mx = ((e.clientX - r.left) / r.width  * 100).toFixed(1);
+            const my = ((e.clientY - r.top)  / r.height * 100).toFixed(1);
+            heroInner.style.setProperty('--mx', mx + '%');
+            heroInner.style.setProperty('--my', my + '%');
+
+            const ox = (e.clientX - r.left - r.width  / 2) / r.width;
+            const oy = (e.clientY - r.top  - r.height / 2) / r.height;
+            cards.forEach(card => {
+                card.style.transform = `translate(${-ox * 12}px, ${-oy * 12}px)`;
+                card.style.transition = 'transform 0.1s linear';
+            });
+        });
+
+        heroWrapper.addEventListener('mouseleave', () => {
+            cards.forEach(card => {
+                card.style.transform = '';
+                card.style.transition = 'transform 0.6s ease';
+            });
+        });
+    }
 
     // ── Parallax scroll on elements with data-parallax ────────
     const parallaxEls = document.querySelectorAll('[data-parallax]');

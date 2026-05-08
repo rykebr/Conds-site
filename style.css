@@ -342,6 +342,22 @@ a { text-decoration: none; }
     border: 1px solid var(--border);
 }
 
+.stat {
+    cursor: pointer;
+    padding: 6px 10px;
+    border-radius: 10px;
+    transition: transform 0.22s ease, background 0.22s ease, box-shadow 0.22s ease;
+    user-select: none;
+}
+
+.stat:hover {
+    transform: translateY(-5px) scale(1.08);
+    background: rgba(255, 106, 0, 0.07);
+    box-shadow: 0 10px 28px rgba(255, 106, 0, 0.18);
+}
+
+.stat:active { transform: scale(0.94); transition: transform 0.08s ease; }
+
 .stat strong {
     display: block;
     font-size: 1.7rem;
@@ -349,9 +365,29 @@ a { text-decoration: none; }
     color: var(--orange);
     line-height: 1;
     margin-bottom: 4px;
+    transition: text-shadow 0.22s ease;
 }
 
-.stat span { font-size: 0.78rem; color: var(--gray-medium); font-weight: 500; }
+.stat:hover strong {
+    text-shadow: 0 0 18px rgba(255, 106, 0, 0.45);
+    animation: statBounce 0.42s ease;
+}
+
+@keyframes statBounce {
+    0%   { transform: translateY(0); }
+    35%  { transform: translateY(-7px); }
+    65%  { transform: translateY(-3px); }
+    100% { transform: translateY(0); }
+}
+
+.stat span {
+    font-size: 0.78rem;
+    color: var(--gray-medium);
+    font-weight: 500;
+    transition: color 0.22s ease;
+}
+
+.stat:hover span { color: var(--orange); }
 
 .stat-divider { width: 1px; height: 42px; background-color: var(--border); }
 
@@ -379,8 +415,9 @@ a { text-decoration: none; }
 .main-img {
     width: 100%;
     object-fit: cover;
+    object-position: center top;
     display: block;
-    transform-origin: center center;
+    transform-origin: center top;
 }
 
 .hero-card {
@@ -1601,9 +1638,9 @@ body,
 /* Ken Burns — hero image */
 @keyframes kenBurns {
     0%   { transform: scale(1)    translate(0, 0); }
-    25%  { transform: scale(1.04) translate(-0.6%, -0.4%); }
-    75%  { transform: scale(1.07) translate(0.5%,  0.5%); }
-    100% { transform: scale(1.04) translate(-0.3%,  0.3%); }
+    25%  { transform: scale(1.03) translate(-0.5%, 0.2%); }
+    75%  { transform: scale(1.05) translate(0.5%,  0.4%); }
+    100% { transform: scale(1.03) translate(-0.3%, 0.2%); }
 }
 .ken-burns { animation: kenBurns 20s ease-in-out infinite alternate; }
 
@@ -1637,6 +1674,26 @@ body,
 }
 .contato-img-wrapper:hover img {
     transform: scale(1.04);
+}
+
+/* Glow que segue o rato */
+.hero-img-inner::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(circle at var(--mx, 50%) var(--my, 50%), rgba(255,255,255,0.22) 0%, transparent 52%);
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    border-radius: 44px;
+    z-index: 3;
+}
+
+.hero-img-wrapper:hover .hero-img-inner::before { opacity: 1; }
+
+.hero-img-wrapper:hover .hero-img-inner {
+    box-shadow: 0 32px 80px rgba(255, 106, 0, 0.22), 0 12px 32px rgba(0,0,0,0.18);
+    transition: box-shadow 0.35s ease;
 }
 
 /* Shimmer sweep no hero image inner */
