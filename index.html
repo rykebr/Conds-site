@@ -1,0 +1,455 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gconds - Gestão Condominial Completa</title>
+    <meta name="description" content="Plataforma completa de gestão condominial. Controle de reservas, encomendas, manutenções, comunicados, documentos e muito mais em um único sistema.">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- NAVBAR -->
+    <header class="navbar" id="navbar">
+        <a href="#hero" class="logo">
+            <img src="img/logo1.png" alt="Gconds" class="logo-img">
+        </a>
+
+        <button class="menu-toggle" id="mobile-menu" aria-label="Menu">
+            <span></span><span></span><span></span>
+        </button>
+
+        <nav class="nav-menu" id="nav-menu">
+            <ul class="nav-links">
+                <li>
+                    <button class="btn-tema" id="tema-toggle" aria-label="Alternar tema">
+                        <i class="fa-solid fa-circle-half-stroke"></i> Tema
+                    </button>
+                </li>
+                <li><a href="#funcionalidades">Funcionalidades</a></li>
+                <li><a href="#como-funciona">Como Funciona</a></li>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#contato">Contato</a></li>
+            </ul>
+            <div class="nav-actions" id="nav-actions">
+                <a href="https://app.gconds.com.br" class="btn-outline" target="_blank">
+                    <i class="fa-solid fa-right-to-bracket"></i> Entrar
+                </a>
+                <a href="https://app.gconds.com.br" class="btn-primary" target="_blank">Solicitar Demo</a>
+            </div>
+        </nav>
+    </header>
+
+    <!-- HERO -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <span class="badge"><i class="fa-solid fa-star"></i> Plataforma completa de gestão condominial</span>
+            <h1>Gerencie seu <span class="highlight">condomínio</span> com total controle</h1>
+            <p class="hero-desc">Do porteiro ao síndico, da manutenção ao financeiro — tudo em uma única plataforma inteligente, moderna e fácil de usar.</p>
+            <div class="hero-cta">
+                <a href="#contato" class="btn-primary btn-large">
+                    Solicitar Demonstração <i class="fa-solid fa-arrow-right"></i>
+                </a>
+                <a href="https://app.gconds.com.br" class="btn-ghost" target="_blank">
+                    <span class="play-icon"><i class="fa-solid fa-play"></i></span> Ver o Sistema
+                </a>
+            </div>
+            <div class="hero-stats">
+                <div class="stat">
+                    <strong data-count="10000" data-suffix="+">10.000+</strong>
+                    <span>Residentes cadastrados</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <strong data-count="12" data-suffix="+">12+</strong>
+                    <span>Módulos integrados</span>
+                </div>
+                <div class="stat-divider"></div>
+                <div class="stat">
+                    <strong data-count="100" data-suffix="%">100%</strong>
+                    <span>Digital e na nuvem</span>
+                </div>
+            </div>
+        </div>
+        <div class="hero-image">
+            <div class="hero-img-wrapper tilt-wrap">
+                <div class="hero-img-inner">
+                    <img src="img/8.png" alt="Gestão Condominial Gconds" class="main-img ken-burns img-theme-light">
+                    <img src="img/9.png" alt="Gestão Condominial Gconds" class="main-img ken-burns img-theme-dark">
+                </div>
+                <div class="hero-card card-1">
+                    <div class="card-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <div>
+                        <strong>Projetos</strong>
+                        <span>72% concluído</span>
+                    </div>
+                </div>
+                <div class="hero-card card-2">
+                    <div class="card-icon"><i class="fa-solid fa-box"></i></div>
+                    <div>
+                        <strong>Encomendas</strong>
+                        <span>3 aguardando</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- NÚMEROS / DESTAQUE -->
+    <section class="numeros">
+        <div class="container">
+            <div class="numeros-grid">
+                <div class="numero-item">
+                    <i class="fa-solid fa-users"></i>
+                    <strong data-count="10000" data-suffix="+">10.000+</strong>
+                    <span>Residentes Gerenciados</span>
+                </div>
+                <div class="numero-item">
+                    <i class="fa-solid fa-building"></i>
+                    <strong data-count="12" data-suffix="+">12+</strong>
+                    <span>Módulos no Sistema</span>
+                </div>
+                <div class="numero-item">
+                    <i class="fa-solid fa-diagram-project"></i>
+                    <strong data-count="100" data-suffix="%">100%</strong>
+                    <span>Online e na Nuvem</span>
+                </div>
+                <div class="numero-item">
+                    <i class="fa-solid fa-headset"></i>
+                    <strong>24/7</strong>
+                    <span>Suporte Especializado</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FUNCIONALIDADES -->
+    <section id="funcionalidades" class="funcionalidades">
+        <div class="container">
+            <div class="section-header animate-on-scroll">
+                <span class="section-tag">Funcionalidades</span>
+                <h2>Tudo que seu condomínio precisa em um só lugar</h2>
+                <p>Mais de 12 módulos integrados para uma gestão completa, eficiente e transparente — sem planilhas, sem papéis.</p>
+            </div>
+            <div class="features-grid">
+                <div class="feature-card" data-delay="0">
+                    <div class="feature-icon"><i class="fa-solid fa-chart-pie"></i></div>
+                    <h3>Painel de Controle</h3>
+                    <p>Visão geral em tempo real de todos os indicadores do seu condomínio.</p>
+                </div>
+                <div class="feature-card" data-delay="1">
+                    <div class="feature-icon"><i class="fa-solid fa-calendar-check"></i></div>
+                    <h3>Reservas</h3>
+                    <p>Agendamento online de áreas comuns com controle de conflitos automático.</p>
+                </div>
+                <div class="feature-card" data-delay="2">
+                    <div class="feature-icon"><i class="fa-solid fa-box"></i></div>
+                    <h3>Encomendas</h3>
+                    <p>Registro e notificação automática de encomendas para os moradores.</p>
+                </div>
+                <div class="feature-card" data-delay="3">
+                    <div class="feature-icon"><i class="fa-solid fa-wrench"></i></div>
+                    <h3>Manutenção</h3>
+                    <p>Controle de manutenções normativas e corretivas com histórico completo.</p>
+                </div>
+                <div class="feature-card" data-delay="4">
+                    <div class="feature-icon"><i class="fa-solid fa-bullhorn"></i></div>
+                    <h3>Comunicados</h3>
+                    <p>Comunicação direta e segmentada com todos os moradores do condomínio.</p>
+                </div>
+                <div class="feature-card" data-delay="5">
+                    <div class="feature-icon"><i class="fa-solid fa-triangle-exclamation"></i></div>
+                    <h3>Ocorrências</h3>
+                    <p>Registro, acompanhamento e resolução de ocorrências com total transparência.</p>
+                </div>
+                <div class="feature-card" data-delay="6">
+                    <div class="feature-icon"><i class="fa-solid fa-diagram-project"></i></div>
+                    <h3>Projetos</h3>
+                    <p>Gestão de projetos com acompanhamento de progresso, fotos e prazos.</p>
+                </div>
+                <div class="feature-card" data-delay="7">
+                    <div class="feature-icon"><i class="fa-solid fa-folder-open"></i></div>
+                    <h3>Documentos</h3>
+                    <p>Arquivo digital centralizado com acesso seguro para moradores e gestão.</p>
+                </div>
+                <div class="feature-card" data-delay="8">
+                    <div class="feature-icon"><i class="fa-solid fa-coins"></i></div>
+                    <h3>Investimentos</h3>
+                    <p>Controle financeiro transparente com relatórios de investimentos e gastos.</p>
+                </div>
+                <div class="feature-card" data-delay="9">
+                    <div class="feature-icon"><i class="fa-solid fa-users"></i></div>
+                    <h3>Usuários</h3>
+                    <p>Gestão completa de moradores, proprietários e funcionários do condomínio.</p>
+                </div>
+                <div class="feature-card" data-delay="10">
+                    <div class="feature-icon"><i class="fa-solid fa-check-double"></i></div>
+                    <h3>Aprovações</h3>
+                    <p>Fluxo digital de aprovações com histórico e rastreabilidade total.</p>
+                </div>
+                <div class="feature-card" data-delay="11">
+                    <div class="feature-icon"><i class="fa-solid fa-file-chart-column"></i></div>
+                    <h3>Relatórios</h3>
+                    <p>Relatórios gerenciais completos para tomada de decisões estratégicas.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- COMO FUNCIONA -->
+    <section id="como-funciona" class="como-funciona">
+        <div class="container">
+            <div class="section-header light animate-on-scroll">
+                <span class="section-tag-dark">Como Funciona</span>
+                <h2>Simples de implementar, poderoso na gestão</h2>
+                <p>Em 3 passos seu condomínio já está operando com o que há de mais moderno em gestão condominial.</p>
+            </div>
+            <div class="steps">
+                <div class="step animate-on-scroll">
+                    <div class="step-number">01</div>
+                    <div class="step-icon"><i class="fa-solid fa-gear"></i></div>
+                    <h3>Cadastro e Configuração</h3>
+                    <p>Configure seu condomínio em minutos. Cadastre unidades, moradores e defina as regras de uso de cada área.</p>
+                </div>
+                <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="step animate-on-scroll">
+                    <div class="step-number">02</div>
+                    <div class="step-icon"><i class="fa-solid fa-mobile-screen"></i></div>
+                    <h3>Acesso para Todos</h3>
+                    <p>Moradores acessam pelo app ou navegador. Síndico tem painel completo. Cada perfil vê exatamente o que precisa.</p>
+                </div>
+                <div class="step-arrow"><i class="fa-solid fa-arrow-right"></i></div>
+                <div class="step animate-on-scroll">
+                    <div class="step-number">03</div>
+                    <div class="step-icon"><i class="fa-solid fa-chart-line"></i></div>
+                    <h3>Gestão em Tempo Real</h3>
+                    <p>Acompanhe tudo pelo painel. Tome decisões com dados reais e mantenha o condomínio sempre em ordem.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- SOBRE -->
+    <section id="sobre" class="sobre">
+        <div class="container">
+            <div class="sobre-grid">
+                <div class="sobre-images">
+                    <div class="tilt-wrap sobre-float-outer">
+                        <div class="sobre-img-frame img-slide-left">
+                            <img src="img/principal2.png" alt="Sobre a Gconds" class="sobre-img-single sobre-img-breathe">
+                            <div class="sobre-img-overlay"></div>
+                        </div>
+                    </div>
+                </div>
+                <div class="sobre-text animate-on-scroll">
+                    <span class="section-tag">Sobre a Gconds</span>
+                    <h2>Gestão condominial que gera resultados reais</h2>
+                    <p>A Gconds nasceu para transformar a forma como condomínios são administrados. Nossa plataforma centraliza todos os processos, eliminando papéis, planilhas e comunicações perdidas.</p>
+                    <p>Atendemos condomínios de pequeno, médio e grande porte com uma solução escalável, moderna e fácil de usar para todos os perfis.</p>
+                    <ul class="check-list">
+                        <li><i class="fa-solid fa-circle-check"></i> Gestão preventiva e corretiva integrada</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Comunicação eficiente com moradores</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Relatórios gerenciais transparentes</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Acesso 100% online, sem instalação</li>
+                        <li><i class="fa-solid fa-circle-check"></i> Suporte especializado em gestão condominial</li>
+                    </ul>
+                    <a href="#contato" class="btn-primary">Quero Conhecer <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <!-- DIFERENCIAIS -->
+    <section class="diferenciais">
+        <div class="container">
+            <div class="diferenciais-grid">
+                <div class="diferenciais-text animate-on-scroll">
+                    <span class="section-tag">Por que a Gconds?</span>
+                    <h2>Uma plataforma completa para síndicos que querem resultados</h2>
+                    <div class="diferencial-item">
+                        <div class="dif-icon"><i class="fa-solid fa-shield-halved"></i></div>
+                        <div>
+                            <h4>Segurança e Confiabilidade</h4>
+                            <p>Dados protegidos na nuvem com backup automático e acesso controlado por perfil.</p>
+                        </div>
+                    </div>
+                    <div class="diferencial-item">
+                        <div class="dif-icon"><i class="fa-solid fa-bolt"></i></div>
+                        <div>
+                            <h4>Agilidade Operacional</h4>
+                            <p>Processos que levavam dias agora são resolvidos em minutos com automação inteligente.</p>
+                        </div>
+                    </div>
+                    <div class="diferencial-item">
+                        <div class="dif-icon"><i class="fa-solid fa-magnifying-glass-chart"></i></div>
+                        <div>
+                            <h4>Transparência Total</h4>
+                            <p>Moradores acessam informações em tempo real, gerando confiança na gestão.</p>
+                        </div>
+                    </div>
+                    <a href="#contato" class="btn-primary" style="margin-top: 12px;">Solicitar Demonstração <i class="fa-solid fa-arrow-right"></i></a>
+                </div>
+                <div class="diferenciais-image animate-on-scroll tilt-wrap">
+                    <div class="dif-img-frame img-reveal-zoom">
+                        <img src="img/principal3.png" alt="Diferenciais Gconds" class="dif-img">
+                    </div>
+                    <div class="dif-badge">
+                        <i class="fa-solid fa-trophy"></i>
+                        <div>
+                            <strong>Gestão Inteligente</strong>
+                            <span>Resultados comprovados</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA BANNER -->
+    <section class="cta-banner">
+        <div class="container">
+            <div class="cta-content animate-on-scroll">
+                <h2>Pronto para transformar a gestão do seu condomínio?</h2>
+                <p>Junte-se a centenas de condomínios que já modernizaram sua administração com a Gconds.</p>
+                <div class="cta-buttons">
+                    <a href="#contato" class="btn-cta-white">
+                        Solicitar Demonstração Gratuita <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <a href="https://app.gconds.com.br" class="btn-cta-outline" target="_blank">
+                        Acessar o Sistema
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CONTATO -->
+    <section id="contato" class="contato">
+        <div class="container">
+            <div class="contato-grid">
+                <div class="contato-info animate-on-scroll">
+                    <span class="section-tag">Fale Conosco</span>
+                    <h2>Solicite uma demonstração personalizada</h2>
+                    <p>Nossa equipe vai apresentar o sistema completo e mostrar como a Gconds pode se adaptar às necessidades específicas do seu condomínio.</p>
+                    <div class="contact-items">
+                        <div class="contact-item">
+                            <div class="contact-icon green"><i class="fa-brands fa-whatsapp"></i></div>
+                            <div>
+                                <strong>WhatsApp</strong>
+                                <span>Atendimento rápido e direto</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-envelope"></i></div>
+                            <div>
+                                <strong>E-mail</strong>
+                                <span>gestaoconds@gmail.com</span>
+                            </div>
+                        </div>
+                        <div class="contact-item">
+                            <div class="contact-icon"><i class="fa-solid fa-globe"></i></div>
+                            <div>
+                                <strong>Sistema</strong>
+                                <span>app.gconds.com.br</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="contato-img-wrapper">
+                        <img src="img/Conds - Gestão condominial_page-0012.jpg" alt="Contato Gconds">
+                    </div>
+                </div>
+                <div class="contato-form animate-on-scroll">
+                    <div class="form-header">
+                        <h3>Experimente grátis por 7 dias</h3>
+                        <p>Acesse o sistema agora e comece sua demonstração gratuita sem precisar de cartão de crédito.</p>
+                    </div>
+                    <div class="demo-box">
+                        <div class="demo-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Acesso completo a todos os módulos</span>
+                        </div>
+                        <div class="demo-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>7 dias gratuitos, sem cartão de crédito</span>
+                        </div>
+                        <div class="demo-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Suporte incluso durante o período de teste</span>
+                        </div>
+                        <div class="demo-item">
+                            <i class="fa-solid fa-circle-check"></i>
+                            <span>Configure seu condomínio em minutos</span>
+                        </div>
+                    </div>
+                    <a href="https://app.gconds.com.br/login" target="_blank" class="btn-primary btn-full" style="margin-top: 28px; font-size: 1.05rem; padding: 18px;">
+                        Começar Demonstração Gratuita <i class="fa-solid fa-arrow-right"></i>
+                    </a>
+                    <p class="form-note"><i class="fa-solid fa-lock"></i> Seguro e gratuito. Cancele quando quiser.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FOOTER -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <div class="logo logo-white">
+                        <img src="img/logo1.png" alt="Gconds" class="logo-img logo-img-footer">
+                    </div>
+                    <p>Gestão condominial moderna e completa para síndicos e administradoras que buscam resultados reais.</p>
+                    <div class="footer-social">
+                        <a href="#" aria-label="Instagram"><i class="fa-brands fa-instagram"></i></a>
+                        <a href="#" aria-label="Facebook"><i class="fa-brands fa-facebook"></i></a>
+                        <a href="#" aria-label="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
+                        <a href="#" aria-label="WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>
+                    </div>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Sistema</h4>
+                    <ul>
+                        <li><a href="#funcionalidades">Funcionalidades</a></li>
+                        <li><a href="#como-funciona">Como Funciona</a></li>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="https://app.gconds.com.br" target="_blank">Acessar Sistema</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Módulos</h4>
+                    <ul>
+                        <li><a href="#funcionalidades">Reservas</a></li>
+                        <li><a href="#funcionalidades">Manutenção</a></li>
+                        <li><a href="#funcionalidades">Comunicados</a></li>
+                        <li><a href="#funcionalidades">Documentos</a></li>
+                        <li><a href="#funcionalidades">Relatórios</a></li>
+                    </ul>
+                </div>
+                <div class="footer-links-col">
+                    <h4>Empresa</h4>
+                    <ul>
+                        <li><a href="#sobre">Sobre</a></li>
+                        <li><a href="#contato">Contato</a></li>
+                        <li><a href="#contato">Suporte</a></li>
+                        <li><a href="https://app.gconds.com.br" target="_blank">Login</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gconds. Todos os direitos reservados.</p>
+                <p>Gestão Condominial Inteligente</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- WHATSAPP FLOAT -->
+    <a href="https://wa.me/5515997180818" class="whatsapp-float" target="_blank" aria-label="WhatsApp">
+        <i class="fa-brands fa-whatsapp"></i>
+    </a>
+
+    <script src="script.js"></script>
+</body>
+</html>
