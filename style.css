@@ -851,6 +851,15 @@ a { text-decoration: none; }
     margin-right: auto;
 }
 
+.cta-tagline {
+    font-size: 1.25rem !important;
+    font-weight: 700 !important;
+    color: #ffffff !important;
+    margin-top: -24px !important;
+    margin-bottom: 36px !important;
+    letter-spacing: 0.02em;
+}
+
 .cta-buttons { display: flex; gap: 20px; justify-content: center; flex-wrap: wrap; }
 
 .btn-cta-white {
